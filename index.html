@@ -3,28 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Animal List</title>
+  <title>Animal Encyclopedia</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="container">
-    <h1>Animal List</h1>
-
-    <!-- Search Section -->
-    <div class="search-section">
-      <input type="text" id="searchBar" placeholder="Search animals..." />
+  <div class="header">
+    <h1>Animal Encyclopedia</h1>
+    <div class="search-container">
+      <input type="text" id="searchBar" placeholder="Search animals...">
       <button id="searchButton">Search</button>
-    </div>
-
-    <!-- Animal Cards -->
-    <div id="animals" class="animals-container">
-      <!-- Animal info will be dynamically inserted here -->
+      <button id="sortButton">Sort by Name</button>
     </div>
   </div>
 
-  <footer>
-    <p>© 2024 Animal Website | <a href="https://github.com/username/repository" target="_blank">GitHub Repo</a></p>
-  </footer>
+  <div id="animals" class="animals-container"></div>
 
   <script src="script.js"></script>
 </body>
