@@ -7,10 +7,11 @@
 
 body {
   font-family: 'Arial', sans-serif;
-  background-color: #f4f4f9;
+  background: linear-gradient(135deg, #f5f7fa, #c3cfe2); /* Colorful gradient background */
   color: #333;
   line-height: 1.6;
   margin: 0;
+  padding: 0 10px;
 }
 
 /* Container */
@@ -28,6 +29,7 @@ h1 {
   color: #007BFF;
   text-transform: uppercase;
   letter-spacing: 2px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* Search Section */
@@ -40,15 +42,16 @@ h1 {
 #searchBar {
   padding: 12px;
   font-size: 1em;
-  border: 1px solid #ddd;
+  border: 2px solid #007BFF;
   border-radius: 8px 0 0 8px;
   width: 300px;
   outline: none;
-  transition: border-color 0.3s;
+  transition: border-color 0.3s, box-shadow 0.3s;
 }
 
 #searchBar:focus {
-  border-color: #007BFF;
+  border-color: #ff6b6b;
+  box-shadow: 0 0 10px #ff6b6b;
 }
 
 #searchButton {
@@ -59,11 +62,12 @@ h1 {
   border: none;
   border-radius: 0 8px 8px 0;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, transform 0.2s;
 }
 
 #searchButton:hover {
-  background-color: #0056b3;
+  background-color: #ff6b6b;
+  transform: scale(1.05);
 }
 
 /* Animals Container */
@@ -79,9 +83,9 @@ h1 {
 .animal-card {
   background: #fff;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 280px; /* Consistent width */
-  height: 400px; /* Consistent height */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 300px; /* Fixed width */
+  height: 450px; /* Fixed height for all cards */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -92,14 +96,15 @@ h1 {
 
 .animal-card:hover {
   transform: scale(1.05);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  background: #f9f9ff; /* Subtle color change on hover */
 }
 
 .animal-card img {
   width: 100%; /* Full card width */
-  height: 200px; /* Consistent height for all images */
+  height: 250px; /* Consistent height for all images */
   object-fit: cover; /* Prevent distortion, fill the space */
-  border-bottom: 1px solid #ddd; /* Add a subtle divider */
+  border-bottom: 2px solid #007BFF; /* Add a subtle divider */
 }
 
 .animal-card h3 {
@@ -111,7 +116,7 @@ h1 {
 .animal-card p {
   font-size: 1em;
   color: #666;
-  margin: 10px 0;
+  margin: 5px 0 15px;
 }
 
 /* Footer */
@@ -121,6 +126,7 @@ footer {
   background: #007BFF;
   color: #fff;
   text-align: center;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
 }
 
 footer a {
@@ -131,4 +137,35 @@ footer a {
 
 footer a:hover {
   text-decoration: underline;
+}
+
+/* Animations */
+@keyframes cardHover {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.image-container {
+  width: 100%; /* Full width of the card */
+  height: 250px; /* Fixed height to match other images */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #666;
+  background-color: #f0f0f0; /* Light gray background */
+  border-bottom: 2px solid #007BFF; /* Same border style as images */
+}
+
+.image-container img {
+  width: 100%; /* Full width of the container */
+  height: 100%; /* Full height of the container */
+  object-fit: cover; /* Prevent distortion */
 }

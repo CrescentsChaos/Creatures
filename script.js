@@ -1,48 +1,60 @@
-// Fetch the animals data from the animals.json file
 fetch('animals.json')
-  .then(response => response.json())
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.json();
+  })
   .then(data => {
-    let animals = data;
+    const animalsContainer = document.getElementById('animals');
+    animalsContainer.innerHTML = '';
 
-    // Automatically sort animals by Name (A-Z) when the page loads
-    animals.sort((a, b) => a.Name.localeCompare(b.Name));
-    displayAnimals(animals);
+    data.forEach(animal => {
+      // Create a card
+      const animalCard = document.createElement('div');
+      animalCard.classList.add('animal-card');
 
-    // Search functionality triggered by the search button
-    const searchButton = document.getElementById('searchButton');
-    searchButton.addEventListener('click', () => {
-      const query = document.getElementById('searchBar').value.toLowerCase().trim();
-      const filteredAnimals = animals.filter(animal =>
-        animal.Name.toLowerCase().includes(query) || animal['Scientific Name'].toLowerCase().includes(query)
-      );
-      displayAnimals(filteredAnimals);
+      // Check for valid image URL
+      const imgURL = animal['Image Link'] ? animal['Image Link'] : null;
+
+      // Add image or TBA fallback
+      const imgElement = document.createElement('div');
+      if (imgURL) {
+        const img = document.createElement('img');
+        img.src = imgURL;
+        img.alt = `Image of ${animal.Name}`;
+        imgElement.appendChild(img);
+      } else {
+        imgElement.style.display = 'flex';
+        imgElement.style.alignItems = 'center';
+        imgElement.style.justifyContent = 'center';
+        imgElement.style.background = '#f0f0f0';
+        imgElement.style.color = '#666';
+        imgElement.style.fontSize = '1.2em';
+        imgElement.style.fontWeight = 'bold';
+        imgElement.style.height = '250px';
+        imgElement.innerText = 'TBA';
+      }
+
+      imgElement.classList.add('image-container'); // Common class for styling
+      animalCard.appendChild(imgElement);
+
+      // Add animal name
+      const nameElement = document.createElement('h3');
+      nameElement.textContent = animal.Name;
+      animalCard.appendChild(nameElement);
+
+      // Add scientific name
+      const scientificNameElement = document.createElement('p');
+      scientificNameElement.textContent = animal['Scientific Name'];
+      animalCard.appendChild(scientificNameElement);
+
+      // Add card to the container
+      animalsContainer.appendChild(animalCard);
     });
   })
   .catch(error => {
     console.error('Error fetching animal data:', error);
-    document.getElementById('animals').innerHTML = '<p>Failed to load animal data.</p>';
+    const animalsContainer = document.getElementById('animals');
+    animalsContainer.innerHTML = '<p>Failed to load animal data.</p>';
   });
-
-// Function to display animals
-function displayAnimals(animals) {
-  const animalsContainer = document.getElementById('animals');
-  animalsContainer.innerHTML = ''; // Clear the container
-
-  if (animals.length === 0) {
-    animalsContainer.innerHTML = '<p>No animals found.</p>';
-    return;
-  }
-
-  animals.forEach(animal => {
-    const animalCard = document.createElement('div');
-    animalCard.classList.add('animal-card');
-
-    animalCard.innerHTML = `
-      <img src="${animal['Image Link']}" alt="${animal.Name}">
-      <h3>${animal.Name}</h3>
-      <p>${animal['Scientific Name']}</p>
-    `;
-
-    animalsContainer.appendChild(animalCard);
-  });
-}
