@@ -4,24 +4,18 @@ fetch('animals.json')
   .then(data => {
     let animals = data;
 
-    // Display the animals initially
+    // Automatically sort animals by Name (A-Z) when the page loads
+    animals.sort((a, b) => a.Name.localeCompare(b.Name));
     displayAnimals(animals);
 
-    // Search functionality
-    const searchBar = document.getElementById('searchBar');
-    searchBar.addEventListener('input', () => {
-      const query = searchBar.value.toLowerCase().trim();
+    // Search functionality triggered by the search button
+    const searchButton = document.getElementById('searchButton');
+    searchButton.addEventListener('click', () => {
+      const query = document.getElementById('searchBar').value.toLowerCase().trim();
       const filteredAnimals = animals.filter(animal =>
         animal.Name.toLowerCase().includes(query) || animal['Scientific Name'].toLowerCase().includes(query)
       );
       displayAnimals(filteredAnimals);
-    });
-
-    // Sort functionality
-    const sortButton = document.getElementById('sortButton');
-    sortButton.addEventListener('click', () => {
-      animals.sort((a, b) => a.Name.localeCompare(b.Name)); // Sort by Name (ascending)
-      displayAnimals(animals);
     });
   })
   .catch(error => {
