@@ -10,7 +10,7 @@ fetch('animals.json')
     // Search functionality
     const searchBar = document.getElementById('searchBar');
     searchBar.addEventListener('input', () => {
-      const query = searchBar.value.toLowerCase();
+      const query = searchBar.value.toLowerCase().trim();
       const filteredAnimals = animals.filter(animal =>
         animal.Name.toLowerCase().includes(query) || animal['Scientific Name'].toLowerCase().includes(query)
       );
