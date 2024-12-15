@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animal Details</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="header">
+    <h1>Animal Details</h1>
+    <button id="backButton">Back</button>
+  </div>
+
+  <div id="animalDetails" class="animal-details-container">
+    <!-- Animal details will be displayed here -->
+  </div>
+
+  <script>
+    // Retrieve the selected animal from localStorage
+    const selectedAnimal = JSON.parse(localStorage.getItem('selectedAnimal'));
+
+    if (selectedAnimal) {
+      // Display the animal details
+      const animalDetailsContainer = document.getElementById('animalDetails');
+      
+      const animalCard = document.createElement('div');
+      animalCard.classList.add('animal-card');
+
+      // Image or TBA fallback
+      const imgURL = selectedAnimal['Image Link'] ? selectedAnimal['Image Link'] : null;
+      const imgElement = document.createElement('div');
+      if (imgURL) {
+        const img = document.createElement('img');
+        img.src = imgURL;
+        img.alt = `Image of ${selectedAnimal.Name}`;
+        imgElement.appendChild(img);
+      } else {
+        imgElement.style.display = 'flex';
+        imgElement.style.alignItems = 'center';
+        imgElement.style.justifyContent = 'center';
+        imgElement.style.background = '#f0f0f0';
+        imgElement.style.color = '#666';
+        imgElement.style.fontSize = '1.2em';
+        imgElement.style.fontWeight = 'bold';
+        imgElement.style.height = '250px';
+        imgElement.innerText = 'TBA';
+      }
+
+      imgElement.classList.add('image-container');
+      animalCard.appendChild(imgElement);
+
+      // Name
+      const nameElement = document.createElement('h3');
+      nameElement.textContent = selectedAnimal.Name;
+      animalCard.appendChild(nameElement);
+
+      // Scientific Name
+      const scientificNameElement = document.createElement('p');
+      scientificNameElement.textContent = selectedAnimal['Scientific Name'];
+      animalCard.appendChild(scientificNameElement);
+
+      animalDetailsContainer.appendChild(animalCard);
+    } else {
+      document.getElementById('animalDetails').innerHTML = '<p>Animal not found.</p>';
+    }
+
+    // Back button event listener
+    document.getElementById('backButton').addEventListener('click', () => {
+      window.location.href = 'index.html'; // Redirect back to the main page
+    });
+  </script>
+
+</body>
+</html>

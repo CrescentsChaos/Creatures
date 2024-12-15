@@ -59,6 +59,14 @@ fetch('animals.json')
         scientificNameElement.textContent = animal['Scientific Name'];
         animalCard.appendChild(scientificNameElement);
 
+        // Add click event to navigate to details page
+        animalCard.addEventListener('click', () => {
+          // Store the selected animal's data in localStorage
+          localStorage.setItem('selectedAnimal', JSON.stringify(animal));
+          // Redirect to the details page
+          window.location.href = 'animalDetails.html';
+        });
+
         // Add card to the container
         animalsContainer.appendChild(animalCard);
       });
