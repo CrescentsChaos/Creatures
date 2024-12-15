@@ -1,94 +1,64 @@
-fetch('animals.json')
-  .then(response => {
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
+document.addEventListener('DOMContentLoaded', () => {
+  const loadingSpinner = document.getElementById('loadingSpinner');
+  const animalsContainer = document.getElementById('animals');
+  const searchBar = document.getElementById('searchBar');
+  const searchButton = document.getElementById('searchButton');
+
+  function renderAnimals(animals) {
+    animalsContainer.innerHTML = '';
+    if (animals.length === 0) {
+      animalsContainer.innerHTML = '<p>No animals found.</p>';
+      return;
     }
-    return response.json();
-  })
-  .then(data => {
-    const animalsContainer = document.getElementById('animals');
-    const searchBar = document.getElementById('searchBar');
-    const searchButton = document.getElementById('searchButton');
 
-    // Function to render animal cards
-    function renderAnimals(filteredData) {
-      animalsContainer.innerHTML = ''; // Clear previous content
+    animals.forEach(animal => {
+      const card = document.createElement('div');
+      card.classList.add('animal-card');
 
-      if (filteredData.length === 0) {
-        animalsContainer.innerHTML = '<p>No animals found.</p>';
-        return;
+      const imgContainer = document.createElement('div');
+      imgContainer.classList.add('image-container');
+
+      if (animal['Image Link']) {
+        const img = document.createElement('img');
+        img.src = animal['Image Link'];
+        img.alt = `Image of ${animal.Name}`;
+        imgContainer.appendChild(img);
+      } else {
+        imgContainer.textContent = 'TBA';
       }
 
-      filteredData.forEach(animal => {
-        // Create a card
-        const animalCard = document.createElement('div');
-        animalCard.classList.add('animal-card');
+      const name = document.createElement('h3');
+      name.textContent = animal.Name;
 
-        // Check for valid image URL
-        const imgURL = animal['Image Link'] ? animal['Image Link'] : null;
+      const sciName = document.createElement('p');
+      sciName.textContent = animal['Scientific Name'];
 
-        // Add image or TBA fallback
-        const imgElement = document.createElement('div');
-        if (imgURL) {
-          const img = document.createElement('img');
-          img.src = imgURL;
-          img.alt = `Image of ${animal.Name}`;
-          imgElement.appendChild(img);
-        } else {
-          imgElement.style.display = 'flex';
-          imgElement.style.alignItems = 'center';
-          imgElement.style.justifyContent = 'center';
-          imgElement.style.background = '#f0f0f0';
-          imgElement.style.color = '#666';
-          imgElement.style.fontSize = '1.2em';
-          imgElement.style.fontWeight = 'bold';
-          imgElement.style.height = '250px';
-          imgElement.innerText = 'TBA';
-        }
+      card.appendChild(imgContainer);
+      card.appendChild(name);
+      card.appendChild(sciName);
 
-        imgElement.classList.add('image-container'); // Common class for styling
-        animalCard.appendChild(imgElement);
-
-        // Add animal name
-        const nameElement = document.createElement('h3');
-        nameElement.textContent = animal.Name;
-        animalCard.appendChild(nameElement);
-
-        // Add scientific name
-        const scientificNameElement = document.createElement('p');
-        scientificNameElement.textContent = animal['Scientific Name'];
-        animalCard.appendChild(scientificNameElement);
-
-        // Add click event to navigate to details page
-        animalCard.addEventListener('click', () => {
-          // Store the selected animal's data in localStorage
-          localStorage.setItem('selectedAnimal', JSON.stringify(animal));
-          // Redirect to the details page
-          window.location.href = 'animalDetails.html';
-        });
-
-        // Add card to the container
-        animalsContainer.appendChild(animalCard);
-      });
-    }
-
-    // Sort animals by name in ascending order automatically
-    const sortedData = [...data].sort((a, b) => a.Name.localeCompare(b.Name));
-
-    // Initial render
-    renderAnimals(sortedData);
-
-    // Event listener for search
-    searchButton.addEventListener('click', () => {
-      const query = searchBar.value.trim().toLowerCase();
-      const filteredData = sortedData.filter(animal =>
-        animal.Name.toLowerCase().includes(query)
-      );
-      renderAnimals(filteredData);
+      animalsContainer.appendChild(card);
     });
-  })
-  .catch(error => {
-    console.error('Error fetching animal data:', error);
-    const animalsContainer = document.getElementById('animals');
-    animalsContainer.innerHTML = '<p>Failed to load animal data.</p>';
+  }
+
+  function fetchData() {
+    loadingSpinner.style.display = 'block';
+    fetch('animals.json')
+      .then(res => res.json())
+      .then(data => {
+        loadingSpinner.style.display = 'none';
+        renderAnimals(data);
+      })
+      .catch(() => {
+        loadingSpinner.style.display = 'none';
+        animalsContainer.innerHTML = '<p>Failed to load data.</p>';
+      });
+  }
+
+  searchButton.addEventListener('click', () => {
+    const query = searchBar.value.toLowerCase();
+    // Filter logic here
   });
+
+  fetchData();
+});
