@@ -9,7 +9,6 @@ fetch('animals.json')
     const animalsContainer = document.getElementById('animals');
     const searchBar = document.getElementById('searchBar');
     const searchButton = document.getElementById('searchButton');
-    const sortButton = document.getElementById('sortButton');
 
     // Function to render animal cards
     function renderAnimals(filteredData) {
@@ -65,27 +64,19 @@ fetch('animals.json')
       });
     }
 
-    // Function to sort animals by name in ascending order
-    function sortAnimalsByName() {
-      const sortedData = [...data].sort((a, b) => a.Name.localeCompare(b.Name));
-      renderAnimals(sortedData);
-    }
+    // Sort animals by name in ascending order automatically
+    const sortedData = [...data].sort((a, b) => a.Name.localeCompare(b.Name));
 
     // Initial render
-    renderAnimals(data);
+    renderAnimals(sortedData);
 
     // Event listener for search
     searchButton.addEventListener('click', () => {
       const query = searchBar.value.trim().toLowerCase();
-      const filteredData = data.filter(animal =>
+      const filteredData = sortedData.filter(animal =>
         animal.Name.toLowerCase().includes(query)
       );
       renderAnimals(filteredData);
-    });
-
-    // Event listener for sorting animals
-    sortButton.addEventListener('click', () => {
-      sortAnimalsByName();
     });
   })
   .catch(error => {
