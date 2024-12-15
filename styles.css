@@ -153,19 +153,17 @@ footer a:hover {
 }
 .image-container {
   width: 100%; /* Full width of the card */
-  height: 250px; /* Fixed height to match other images */
+  height: 250px; /* Fixed height for consistency */
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.5em;
-  font-weight: bold;
-  color: #666;
-  background-color: #f0f0f0; /* Light gray background */
-  border-bottom: 2px solid #007BFF; /* Same border style as images */
+  background-color: #f0f0f0; /* Light gray background for consistency */
+  border-bottom: 2px solid #007BFF; /* Add a border for style */
+  overflow: hidden; /* Ensure no overflow from the container */
 }
 
 .image-container img {
-  width: 100%; /* Full width of the container */
-  height: 100%; /* Full height of the container */
-  object-fit: cover; /* Prevent distortion */
+  width: 100%; /* Fit the width of the container */
+  height: 100%; /* Fit the height of the container */
+  object-fit: contain; /* Ensure the whole image is visible without cropping */
 }
