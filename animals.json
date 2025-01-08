@@ -6852,7 +6852,7 @@
   {
     "Name": "Ceratosaurus",
     "Scientific Name": "Ceratosaurus nasicornis",
-    "Image Link": null
+    "Image Link": "https://upload.wikimedia.org/wikipedia/commons/2/23/Ceratosaurus_nasicornis_DB.jpg"
   },
   {
     "Name": "Genyodectes",
@@ -6947,7 +6947,7 @@
   {
     "Name": "Proceratosaurus",
     "Scientific Name": "Proceratosaurus bradleyi",
-    "Image Link": null
+    "Image Link": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTqHEl3beWwCQKPZshTGu0OoxiBM6Uf3B_Fg&s"
   },
   {
     "Name": "Sinotyrannus",
@@ -8537,7 +8537,7 @@
   {
     "Name": "Diabloceratops",
     "Scientific Name": "Diabloceratops eatoni",
-    "Image Link": null
+    "Image Link": "https://nhmu.utah.edu/sites/default/files/styles/2x_small_320w/public/embedded_images/diabloceratops%20rendering_7.jpg?itok=JVRQKLFu"
   },
   {
     "Name": "Afromimus",
@@ -8693,5 +8693,80 @@
     "Name": "straightline dragonfish",
     "Scientific Name": "Borostomias antarcticus",
     "Image Link": "https://fishesofaustralia.net.au/Images/Image/AstronesthNiger2MCZ.jpg"
+  },
+  {
+    "Name": "Dunkleosteus",
+    "Scientific Name": "Dunkleosteus terrelli",
+    "Image Link": "https://allosaurusroar.com/wp-content/uploads/2017/10/dunkleosteus1.jpg?w=840"
+  },
+  {
+    "Name": "Eastmanosteus",
+    "Scientific Name": "Eastmanosteus pustulosus",
+    "Image Link": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/E_calliaspis.png/220px-E_calliaspis.png"
+  },
+  {
+    "Name": "Golshanichthys",
+    "Scientific Name": "Golshanichthys asiatica",
+    "Image Link": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Gorgonichthys_clarki_reconstruction.png/320px-Gorgonichthys_clarki_reconstruction.png"
+  },
+  {
+    "Name": "Heterosteus",
+    "Scientific Name": "Heterosteus asmussi",
+    "Image Link": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Heterosteus_recon.png/220px-Heterosteus_recon.png"
+  },
+  {
+    "Name": "Kiangyousteus",
+    "Scientific Name": "Kiangyousteus yohii",
+    "Image Link": "https://pbs.twimg.com/media/GchAaZEaEAA9vk4.jpg"
+  },
+  {
+    "Name": "Xiangshuiosteus wui",
+    "Scientific Name": "Xiangshuiosteus wui",
+    "Image Link": "https://iiab.me/kiwix/content/wikipedia_en_top_maxi_2022-11/I/D_Terrelli.png.webp"
+  },
+  {
+    "Name": "Centrosaurus",
+    "Scientific Name": "Centrosaurus apertus",
+    "Image Link": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Centrosaurus.png/200px-Centrosaurus.png"
+  },
+  {
+    "Name": "Xenoceratops",
+    "Scientific Name": "Xenoceratops foremostensis",
+    "Image Link": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Xenoceratops_NT_small.jpg"
+  },
+  {
+    "Name": "Sinoceratops",
+    "Scientific Name": "Sinoceratops zhuchengensis",
+    "Image Link": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Sinoceratops_NT.jpg/220px-Sinoceratops_NT.jpg"
+  },
+  {
+    "Name": "Machairoceratops",
+    "Scientific Name": "Machairoceratops cronusi",
+    "Image Link": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Machairoceratops_UDL.png/220px-Machairoceratops_UDL.png"
+  },
+  {
+    "Name": "Menefeeceratops",
+    "Scientific Name": "Menefeeceratops sealeyi",
+    "Image Link": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Menefeeceratops_UDL.png/220px-Menefeeceratops_UDL.png"
+  },
+  {
+    "Name": "Wendiceratops pinhornensis",
+    "Scientific Name": "Wendiceratops pinhornensis",
+    "Image Link": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/8e0657fd-321b-49fe-941e-c71ef10a532b/dcn6ijn-be57de90-3f04-4f5e-8c66-b1ab14edcc74.png/v1/fill/w_1600,h_1200,q_80,strp/wendiceratops_by_cisiopurple_dcn6ijn-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzhlMDY1N2ZkLTMyMWItNDlmZS05NDFlLWM3MWVmMTBhNTMyYlwvZGNuNmlqbi1iZTU3ZGU5MC0zZjA0LTRmNWUtOGM2Ni1iMWFiMTRlZGNjNzQucG5nIiwiaGVpZ2h0IjoiPD0xMjAwIiwid2lkdGgiOiI8PTE2MDAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uud2F0ZXJtYXJrIl0sIndtayI6eyJwYXRoIjoiXC93bVwvOGUwNjU3ZmQtMzIxYi00OWZlLTk0MWUtYzcxZWYxMGE1MzJiXC9jaXNpb3B1cnBsZS00LnBuZyIsIm9wYWNpdHkiOjk1LCJwcm9wb3J0aW9ucyI6MC40NSwiZ3Jhdml0eSI6ImNlbnRlciJ9fQ.paRmXvxegYkfR8OPRIAUhFipIz7LVuwisC3vggG3DoE"
+  },
+  {
+    "Name": "Einiosaurus",
+    "Scientific Name": "Einiosaurus procurvicornis",
+    "Image Link": "https://thedinosaurs.org/wp-content/uploads/2022/11/Einiosaurus_BW.jpg"
+  },
+  {
+    "Name": "Styracosaurus",
+    "Scientific Name": "Styracosaurus albertensis",
+    "Image Link": "https://a-z-animals.com/media/2022/07/shutterstock_1652918164-958x1024.jpg"
+  },
+  {
+    "Name": "Pachyrhinosaurus",
+    "Scientific Name": "Pachyrhinosaurus canadensis",
+    "Image Link": "https://www.dododex.com/media/creature/pachyrhinosaurus.png"
   }
 ]
